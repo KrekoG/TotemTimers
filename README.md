@@ -2,6 +2,7 @@
 # TotemTimers
 A WoW 1.12 addon that helps with tracking your active totems - now compatible with Vanilla+
 
+![image](https://user-images.githubusercontent.com/1638449/164323573-93dd7d9d-c15d-4e8a-9331-6a9c040f5383.png)
 
 ## Installation instructions
 1. Press the green "code" button -> Download ZIP
