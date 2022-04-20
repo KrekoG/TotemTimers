@@ -265,6 +265,9 @@ function TotemTimers_CastSpell(id, book)
 			SetCVar("UberTooltips", oldVar);
 			local ttdata = getglobal("TotemTimersTooltipTextLeft4"):GetText();
 			TT["element"] = string.gfind(ttdata, TT_ELEMENT_REGEX)();
+			if not TT["element"] then
+				TT["element"] = TT_WATER -- The guys didn't give a damn about the API... oh well
+			end
 			--DEFAULT_CHAT_FRAME:AddMessage("[TT] Spell = "..TT["spell"]);
 			--DEFAULT_CHAT_FRAME:AddMessage("[TT] Book = "..TT["book"]);
 			--DEFAULT_CHAT_FRAME:AddMessage("[TT] Totem = "..TT["totem"]);
@@ -308,6 +311,9 @@ function TotemTimers_UseAction(id, number, target)
 			end
 			ttdata = getglobal("TotemTimersTooltipTextLeft4"):GetText();
 			TT["element"] = string.gfind(ttdata, TT_ELEMENT_REGEX)();
+			if not TT["element"] then
+				TT["element"] = TT_WATER -- The guys didn't give a damn about the API... oh well
+			end
       --DEFAULT_CHAT_FRAME:AddMessage("[TT] Action = "..TT["action"]);
 			--if( TT["number"] ) then
 				--DEFAULT_CHAT_FRAME:AddMessage("[TT] Number = "..TT["number"]);
@@ -388,6 +394,9 @@ function TotemTimers_CastSpellByName(Spell_Name)
 			SetCVar("UberTooltips", oldVar);
 			local ttdata = getglobal("TotemTimersTooltipTextLeft4"):GetText();
 			TT["element"] = string.gfind(ttdata, TT_ELEMENT_REGEX)();
+			if not TT["element"] then
+				TT["element"] = TT_WATER -- The guys didn't give a damn about the API... oh well
+			end
 			--DEFAULT_CHAT_FRAME:AddMessage("[TT] Spell = "..TT["spell"]);
 			--DEFAULT_CHAT_FRAME:AddMessage("[TT] Book = "..TT["book"]);
 			--DEFAULT_CHAT_FRAME:AddMessage("[TT] Rank = "..TT["rank"]);
