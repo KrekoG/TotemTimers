@@ -27,6 +27,7 @@ if (GetLocale() == "koKR") then
 	TT_TRANQUIL_AIR = "평온의";
 	TT_WINDFURY = "질풍의";
 	TT_WINDWALL = "바람막이";
+	TT_TOTEMIC_CALL = "Totemic Call";
 
 	TT_EARTH = "대지";
 	TT_AIR = "바람";

@@ -296,6 +296,9 @@ function TotemTimers_UseAction(id, number, target)
 		SetCVar("UberTooltips", oldVar);
 		local ttdata = getglobal("TotemTimersTooltipTextLeft1"):GetText();
 		if( ttdata ) then
+			if ttdata == TT_TOTEMIC_CALL then
+				return TotemTimers_resetDurations()
+			end
 			TT["totem"] = string.gfind(ttdata, TT_TOTEM_REGEX)();
 			tt_trinket = string.gfind(ttdata, TT_TRINKET_REGEX)();
 		end
@@ -561,11 +564,7 @@ function TotemTimers_OnEvent(event)
 		TotemTimers_SetupVariables();
 	elseif ( event == "PLAYER_DEAD" ) then
 		--DEFAULT_CHAT_FRAME:AddMessage(TT_PLAYERDEATH);
-		data.duration = 0;
-		for num, totem in TTActiveTotems do
-			totem.active = nil;
-		end
-		TotemTimers_UpdateButtons();
+		TotemTimers_resetDurations();
 	elseif ( event == "PLAYER_ENTERING_WORLD" ) then
 		TotemTimers_SetupGlobals();
 		--TotemTimers_SetupHooks();
@@ -599,6 +598,14 @@ function TotemTimers_OnEvent(event)
 			end
 		end
 	end
+end
+
+function TotemTimers_resetDurations()
+	data.duration = 0;
+	for num, totem in TTActiveTotems do
+		totem.active = nil;
+	end
+	TotemTimers_UpdateButtons();
 end
 
 function TotemTimers_UpdateButtons()

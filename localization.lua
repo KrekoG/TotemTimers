@@ -25,6 +25,7 @@ TT_TREMOR = "Tremor";
 TT_TRANQUIL_AIR = "Tranquil Air";
 TT_WINDFURY = "Windfury";
 TT_WINDWALL = "Windwall";
+TT_TOTEMIC_CALL = "Totemic Call";
 
 TT_EARTH = "Earth";
 TT_AIR = "Air";

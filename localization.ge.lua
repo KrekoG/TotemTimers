@@ -27,6 +27,7 @@ TT_TREMOR = "des Erdsto\195\159es";
 TT_TRANQUIL_AIR = "der beruhigenden Winde";
 TT_WINDFURY = "des Windzorns";
 TT_WINDWALL = "der Windmauer";
+TT_TOTEMIC_CALL = "Totemic Call";
 
 TT_EARTH = "Erd";
 TT_AIR = "Luft";

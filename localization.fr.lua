@@ -26,6 +26,7 @@ TT_TREMOR = "de S\195\169isme";
 TT_TRANQUIL_AIR = "de Tranquillit\195\169 de l\039air";
 TT_WINDFURY = "Furie-des-vents";
 TT_WINDWALL = "de Mur des vents";
+TT_TOTEMIC_CALL = "Totemic Call";
 
 TT_EARTH = "terre";
 TT_AIR = "air";
