@@ -134,7 +134,7 @@ TT_LOADED = "TotemTimers Addon Loaded";
 -- Important Stuff
 TT_CAST_REGEX = "You cast (.+) Totem%.";
 TT_DEATH_REGEX = "(.+) Totem ?(%a*) is destroyed%.";
-TT_DAMAGE_REGEX = { 
+TT_DAMAGE_REGEX = {
 	".+ [crh]+its (.+) Totem ?(%a*) for (%d+).*"
 };
 

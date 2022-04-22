@@ -4,8 +4,8 @@
 ## Maintained by:  Zulah
 ##                 Added support for tranquil air totem.
 ##                 Added support for new AQ20 totems.
-## Author: Grumpey 
+## Author: Grumpey
 ## SavedVariables: TTData, TTActiveTotems
 ## OptionalDeps: Debug
-## Dependencies: 
+## Dependencies:
 TotemTimers.xml

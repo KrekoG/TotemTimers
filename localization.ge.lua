@@ -35,7 +35,7 @@ TT_FIRE = "Feuer";
 
 TT_SHAMAN = "Schamane";
 
--- Here we do an aliasing.  Anytime we parse a chat message we see if we 
+-- Here we do an aliasing.  Anytime we parse a chat message we see if we
 -- need to update the alias.  Simple search and replace.
 TT_ALIAS = {};
 TT_ALIAS[1] = { string = TT_NATURE_RESISTANCE, alias = "des Naturwiderstandes" };
@@ -139,7 +139,7 @@ TT_LOADED = "TotemTimers Addon geladen";
 -- Important Stuff
 TT_CAST_REGEX = "Ihr wirkt Totem (.+)%.";
 TT_DEATH_REGEX = "Totem (.-) ?(%u*)%.? ist zerst\195\182rt%.";
-TT_DAMAGE_REGEX = { 
+TT_DAMAGE_REGEX = {
 	".+ trifft Totem (.-) ?(%u*)%.? kritisch f\195\188r (%d+).",
 	".+ trifft Totem (.-) ?(%u*)%.? f\195\188r (%d+)."
 };

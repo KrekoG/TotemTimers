@@ -27,10 +27,10 @@ TT_TRANQUIL_AIR = "de Tranquillit\195\169 de l\039air";
 TT_WINDFURY = "Furie-des-vents";
 TT_WINDWALL = "de Mur des vents";
 
-TT_EARTH = "terre"; 
-TT_AIR = "air"; 
-TT_WATER = "eau"; 
-TT_FIRE = "feu"; 
+TT_EARTH = "terre";
+TT_AIR = "air";
+TT_WATER = "eau";
+TT_FIRE = "feu";
 
 TT_SHAMAN = "Chaman"
 
@@ -106,16 +106,16 @@ TT_LOADED = "TotemTimers Addon Loaded";
 
 -- These are the most important lines
 TT_CAST_REGEX = "Vous lancez Totem (.+).";
-TT_DEATH_REGEX = "Totem (.+) ?(%u*) a \195\169t\195\169 d\195\169truit\(e\)"; 
+TT_DEATH_REGEX = "Totem (.+) ?(%u*) a \195\169t\195\169 d\195\169truit\(e\)";
 TT_DAMAGE_REGEX = {
 	".+ touche Totem (.+) ?(%u*) et inflige (.+)  points de d195\169gats%.",
 	".+ touche Totem (.+) ?(%u*) avec un coup critique et inflige (.+)  points de d195\169gats%.",
 	".+ touche Totem (.+) ?(%u*) pour (.+)  points de d195\169gats%."
 };
 
-TT_TOTEM_REGEX = "Totem (.+)"; 
+TT_TOTEM_REGEX = "Totem (.+)";
 TT_TRINKET_REGEX ="Esprit (.+)";
-TT_RANK_REGEX = "Rang (%d+)"; 
+TT_RANK_REGEX = "Rang (%d+)";
 TT_ELEMENT_REGEX = "Outils\194\160: Totem d[e'][ ]?(.+)";
 
 TT_NAME_STRING = "Totem %s";

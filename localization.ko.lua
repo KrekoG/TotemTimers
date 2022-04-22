@@ -136,7 +136,7 @@ if (GetLocale() == "koKR") then
 	-- Important Stuff
 	TT_CAST_REGEX = "(.+) 토템|1을;를; 시전합니다.";
 	TT_DEATH_REGEX = "(.+) 토템 ?(%a*)|1이;가; 파괴되었습니다.";
-	TT_DAMAGE_REGEX = { 
+	TT_DAMAGE_REGEX = {
 		"+|1이;가; (.+) 토템 ?(%a*)|1을;를; 공격하여 (.+)의 피해를 입혔습니다.",
 		"(.+) 토템 ?(%a*)|1을;를; 공격하여 (.+)의 치명상을 입혔습니다."
 	};
