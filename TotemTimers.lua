@@ -1,5 +1,5 @@
 --[[
-original author: Donald Ephraim Curtis 
+original author: Donald Ephraim Curtis
 current author: Grumpey (grumpy.walker@gmail.com)
 new current author:  Zulah
 TotemTimers: Movable Totem Timers and Totem Expiration Notification
@@ -52,7 +52,7 @@ function TotemTimers( msg )
 					arg[j] = string.upper(string.sub(arg[j],1,1)) .. string.lower(string.sub(arg[j],2));
 					if( TotemTimers_ValidElement(arg[j]) ) then
 						TTData[TT_ORDER][j-1] = arg[j];
-					else 
+					else
 						TotemTimers_PrintUsage(TT_SLASH[TT_ORDER]);
 					end
 				else
@@ -126,7 +126,7 @@ function TotemTimers( msg )
 		TTData.Totems[TT_WINDWALL] = {};
 		TTData.Totems[TT_ANCIENT_MANA_SPRING] = {};
 		TTActiveTotems = { };
-		
+
 		TotemTimersFrame:ClearAllPoints();
 		TotemTimersFrame:SetPoint("Right", "UIParent", "TopRight", -200,-120);
 		TotemTimer2:ClearAllPoints();
@@ -183,10 +183,10 @@ function TotemTimers_SetOrientation()
 		TotemTimer4:ClearAllPoints();
 		TotemTimer4:SetPoint("Right","TotemTimer3","Left",-7,0);
 	end
-		
+
 end
 
-function TotemTimers_Disable() 
+function TotemTimers_Disable()
 	TotemTimersFrame:UnregisterEvent("VARIABLES_LOADED");
 	TotemTimersFrame:UnregisterEvent("CHAT_MSG_SPELL_SELF_BUFF");
 	TotemTimersFrame:UnregisterEvent("PLAYER_LEVEL_UP");
@@ -201,7 +201,7 @@ function TotemTimers_Disable()
 
 end
 
-function TotemTimers_Enable() 
+function TotemTimers_Enable()
 	TotemTimersFrame:RegisterEvent("VARIABLES_LOADED");
 	TotemTimersFrame:RegisterEvent("CHAT_MSG_SPELL_SELF_BUFF");
 	TotemTimersFrame:RegisterEvent("PLAYER_LEVEL_UP");
@@ -214,7 +214,7 @@ function TotemTimers_Enable()
 	TotemTimersFrame:RegisterEvent("CHAT_MSG_SPELL_CREATURE_VS_SELF_DAMAGE");
 	TotemTimersFrame:RegisterEvent("CHAT_MSG_SPELL_HOSTILEPLAYER_DAMAGE");
 end
-	
+
 function TotemTimers_OnLoad()
 	TotemTimers_Enable();
 
@@ -307,7 +307,7 @@ function TotemTimers_UseAction(id, number, target)
 			else
 				TT["rank"] = string.gfind(ttdata, TT_RANK_REGEX)();
 				TT["rank"] = tonumber(TT["rank"]);
-				getglobal("TotemTimersTooltipTextRight1"):SetText(nil);	
+				getglobal("TotemTimersTooltipTextRight1"):SetText(nil);
 			end
 			ttdata = getglobal("TotemTimersTooltipTextLeft4"):GetText();
 			TT["element"] = string.gfind(ttdata, TT_ELEMENT_REGEX)();
@@ -329,7 +329,7 @@ function TotemTimers_UseAction(id, number, target)
 			TT["Slot_Id"] = Slot_ID;
 			TT["element"] = TT_WATER;
 			TT["rank"] = 0;
-			TotemTimers_CreateTotem();	
+			TotemTimers_CreateTotem();
 		else
 			local inRange = IsActionInRange(id);
 			if( inRange ) then
@@ -361,7 +361,7 @@ function GetSpellID(spellname)
     --DEFAULT_CHAT_FRAME:AddMessage(id);
     return id
 
-	
+
 end
 
 --Additions for hooking CastSpellByName
@@ -407,8 +407,8 @@ function TotemTimers_CastSpellByName(Spell_Name)
 	end
 end
 
---Additions for hooking UseInventoryItem 
-function TotemTimers_UseInventoryItem(Slot_ID) 
+--Additions for hooking UseInventoryItem
+function TotemTimers_UseInventoryItem(Slot_ID)
 --DEFAULT_CHAT_FRAME:AddMessage("UseInventoryItem Called");
 --DEFAULT_CHAT_FRAME:AddMessage(Slot_ID);
 --Check to see if it's slot id 13/14 for trinkets
@@ -420,8 +420,8 @@ function TotemTimers_UseInventoryItem(Slot_ID)
 				--DEFAULT_CHAT_FRAME:AddMessage("ttdata is here");
 				TT = {};
 				tt_trinket = string.gfind(ttdata, TT_TRINKET_REGEX)();
-				--DEFAULT_CHAT_FRAME:AddMessage(TT["totem"]) 	
-				else 
+				--DEFAULT_CHAT_FRAME:AddMessage(TT["totem"])
+				else
 				--DEFAULT_CHAT_FRAME:AddMessage("no totem");
 				return;
 				end
@@ -485,9 +485,9 @@ function TotemTimers_CreateTotem()
 					at.hits = at.hits + (at.hits * .5);
 				end
 			end
-			
+
 			--DEFAULT_CHAT_FRAME:AddMessage("Duration: "..at.duration);
-			at.Slot_Id = TT["Slot_Id"];	
+			at.Slot_Id = TT["Slot_Id"];
 			at.spell = TT["spell"];
 			at.book = TT["book"];
 			at.action = TT["action"];
@@ -531,14 +531,14 @@ end
 function TotemTimers_SetupHooks()
 	TT_HookFunctions = {};
 	TT_HookFunctions["UseAction"] = UseAction;
-	UseAction = function(id,book,onself) 
-		TotemTimers_UseAction(id, book); 
-		TT_HookFunctions["UseAction"](id,book,onself); 
+	UseAction = function(id,book,onself)
+		TotemTimers_UseAction(id, book);
+		TT_HookFunctions["UseAction"](id,book,onself);
 	end;
 	TT_HookFunctions["CastSpell"] = CastSpell;
-	CastSpell = function(id,book) 
-		TotemTimers_CastSpell(id, book); 
-		TT_HookFunctions["CastSpell"](id,book); 
+	CastSpell = function(id,book)
+		TotemTimers_CastSpell(id, book);
+		TT_HookFunctions["CastSpell"](id,book);
 	end;
 	--Additions for hooking CastSpellByName
 	TT_HookFunctions["CastSpellByName"] = CastSpellByName;
@@ -585,7 +585,7 @@ function TotemTimers_OnEvent(event)
 			TotemTimers_CreateTotem(match);
 		end
 		]]--
-	elseif ( event == "CHAT_MSG_SPELL_CREATURE_VS_SELF_DAMAGE" or 
+	elseif ( event == "CHAT_MSG_SPELL_CREATURE_VS_SELF_DAMAGE" or
 			 event == "CHAT_MSG_COMBAT_CREATURE_VS_SELF_HITS" or
 			 event == "CHAT_MSG_SPELL_HOSTILEPLAYER_DAMAGE" or
 			 event == "CHAT_MSG_COMBAT_HOSTILEPLAYER_HITS" ) then
@@ -664,7 +664,7 @@ function TotemTimers_UpdateButtons()
 		end
 	end
 end
-    
+
 function TotemTimers_TotemWarn(totem)
 	if( TTData.Totems[totem] ) then
 		local rank = TTActiveTotems[totem].rank;
@@ -710,7 +710,7 @@ function TotemTimers_NotifyWarning(name,item)
 
 		if ( item.warningMsg ) then
 			warningMsg = item.warningMsg;
-		else 
+		else
 			if( TTData.Default.warningMsg ) then
 				warningMsg = TTData.Default.warningMsg;
 			else
@@ -727,11 +727,11 @@ function TotemTimers_NotifyWarning(name,item)
 				warningColor =  { 1.0, 1.0, 1.0 } ;
 			end
 		end
-		UIErrorsFrame:AddMessage(name.." "..warningMsg,  
-			warningColor[1], 
-			warningColor[2], 
-			warningColor[3], 
-			1.0, UIERRORS_HOLD_TIME);	
+		UIErrorsFrame:AddMessage(name.." "..warningMsg,
+			warningColor[1],
+			warningColor[2],
+			warningColor[3],
+			1.0, UIERRORS_HOLD_TIME);
 
 		if ( item.warningSound ) then
 			PlaySoundFile(item.warningSound);
@@ -739,7 +739,7 @@ function TotemTimers_NotifyWarning(name,item)
 			PlaySoundFile(TTData.Default.warningSound);
 		end
 	end
-		
+
 end
 
 function TotemTimers_NotifyDestroy(name,item)
@@ -756,11 +756,11 @@ function TotemTimers_NotifyDestroy(name,item)
 					expireColor =  { 1.0, 1.0, 1.0 } ;
 				end
 			end
-			UIErrorsFrame:AddMessage(name.." "..item.expireMsg,  
-				expireColor[1], 
-				expireColor[2], 
-				expireColor[3], 
-				1.0, UIERRORS_HOLD_TIME);	
+			UIErrorsFrame:AddMessage(name.." "..item.expireMsg,
+				expireColor[1],
+				expireColor[2],
+				expireColor[3],
+				1.0, UIERRORS_HOLD_TIME);
 		elseif ( TTData.Default.expireMsg ) then
 			if ( item.expireColor ) then
 				expireColor = item.expireColor;
@@ -771,11 +771,11 @@ function TotemTimers_NotifyDestroy(name,item)
 					expireColor =  { 1.0, 1.0, 1.0 } ;
 				end
 			end
-			UIErrorsFrame:AddMessage(name.." "..TTData.Default.expireMsg,  
-				expireColor[1], 
-				expireColor[2], 
-				expireColor[3], 
-				1.0, UIERRORS_HOLD_TIME);	
+			UIErrorsFrame:AddMessage(name.." "..TTData.Default.expireMsg,
+				expireColor[1],
+				expireColor[2],
+				expireColor[3],
+				1.0, UIERRORS_HOLD_TIME);
 		end
 
 		if ( item.expireSound ) then
@@ -784,7 +784,7 @@ function TotemTimers_NotifyDestroy(name,item)
 			PlaySoundFile(TTData.Default.expireSound);
 		end
 	end
-		
+
 end
 
 function TotemTimers_SetupVariables()
@@ -823,7 +823,7 @@ function TotemTimers_SetupVariables()
 			TTData.Default.warningColor = { 0.0, 1.0, 0.0 };
 			TTData.Default.warningTime = 10;
 		end
-		
+
 		if( not TTData.Totems ) then
 			TTData.Totems = { };
 			TTData.Totems[TT_DISEASE_CLEANSING] = {};
@@ -859,7 +859,7 @@ function TotemTimers_SetupVariables()
 		for totem, data in TotemData do
 			data.damage = 0;
 		end
-		
+
 		if ( TTData.show == 0 ) then
 			getglobal("TotemTimersFrame"):Hide();
 		else
